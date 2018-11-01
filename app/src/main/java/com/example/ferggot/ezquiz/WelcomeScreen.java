@@ -17,13 +17,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
         Button btn = (Button)findViewById(R.id.start_button);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                startActivity(new Intent(WelcomeScreen.this, QuizActivity.class));
-            }
-        });
-
+        btn.setOnClickListener((V) -> startActivity(new Intent(WelcomeScreen.this, QuizActivity.class)));
 
     }
 
