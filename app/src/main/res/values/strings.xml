@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">EZquiz</string>
     <string name="Welcome_text" />
+    <string name="good_luck">Good Luck</string>
 </resources>
