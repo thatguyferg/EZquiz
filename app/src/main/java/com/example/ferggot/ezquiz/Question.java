@@ -1,8 +1,8 @@
 package com.example.ferggot.ezquiz;
 
-public class Questions {
+public class Question {
 
-    public enum Answer {A, B, C};
+    public enum Answer {A, B, C}
 
     private final int id;
     private final String question;
@@ -11,7 +11,7 @@ public class Questions {
     private final String optB;
     private final String optC;
 
-    public Questions(int id, String question, String optA, String optB, String optC, Answer answer) {
+    public Question(int id, String question, String optA, String optB, String optC, Answer answer) {
         this.id = id;
         this.question = question;
         this.optA = optA;
