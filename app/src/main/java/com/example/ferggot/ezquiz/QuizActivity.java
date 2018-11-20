@@ -1,7 +1,10 @@
 package com.example.ferggot.ezquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -9,10 +12,15 @@ import java.util.List;
 
 public class QuizActivity extends AppCompatActivity {
 
-    List<Question> questionList = Arrays.asList(new Question(1, "Is milly a good dog?", "Yes", "Yeah", "Ye", Question.Answer.C));
+    List<Question> questionList = Arrays.asList
+    (
+    new Question(1, "Is milly a good dog?", "Yes", "Yeah", "Ye", Question.Answer.C),
+    new Question(2, "Does the next button work?", "Yes", "Maybe", "Definitely", Question.Answer.A));
+
     Question currentQuestion;
     int qIndex = 0;
     TextView txtQuestion;
+    Button butNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +28,25 @@ public class QuizActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quiz);
         currentQuestion = questionList.get(qIndex);
         txtQuestion = (TextView)findViewById(R.id.questionText);
-        txtQuestion.setText(currentQuestion.getQuestion());
+        butNext = (Button)findViewById(R.id.nextButton);
+        setQuestionView();
 
+        butNext.setOnClickListener((v) -> {
+            if (qIndex < questionList.size()) {
+                currentQuestion = questionList.get(qIndex);
+                setQuestionView();
+            } else {
+                Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+    }
+
+    private void setQuestionView(){
+        txtQuestion.setText(currentQuestion.getQuestion());
+        qIndex++;
     }
 
 
