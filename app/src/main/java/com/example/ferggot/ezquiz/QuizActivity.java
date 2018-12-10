@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.Arrays;
@@ -21,6 +22,7 @@ public class QuizActivity extends AppCompatActivity {
     int qIndex = 0;
     TextView txtQuestion;
     Button butNext;
+    RadioButton rdA, rdB, rdC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,9 @@ public class QuizActivity extends AppCompatActivity {
         currentQuestion = questionList.get(qIndex);
         txtQuestion = (TextView)findViewById(R.id.questionText);
         butNext = (Button)findViewById(R.id.nextButton);
+        rdA = (RadioButton)findViewById(R.id.A);
+        rdB = (RadioButton)findViewById(R.id.B);
+        rdC = (RadioButton)findViewById(R.id.C);
         setQuestionView();
 
         butNext.setOnClickListener((v) -> {
@@ -46,6 +51,9 @@ public class QuizActivity extends AppCompatActivity {
 
     private void setQuestionView(){
         txtQuestion.setText(currentQuestion.getQuestion());
+        rdA.setText(currentQuestion.getOptA());
+        rdB.setText(currentQuestion.getOptB());
+        rdC.setText(currentQuestion.getOptC());
         qIndex++;
     }
 
