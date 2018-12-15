@@ -1,11 +1,11 @@
-package com.example.ferggot.ezquiz;
+package com.thatguyferg.ezquiz;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.view.View.OnClickListener;
+
+import com.thatguyferg.ezquiz.R;
 
 public class WelcomeScreen extends AppCompatActivity {
 

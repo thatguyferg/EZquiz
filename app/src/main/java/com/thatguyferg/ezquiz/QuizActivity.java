@@ -1,12 +1,15 @@
-package com.example.ferggot.ezquiz;
+package com.thatguyferg.ezquiz;
 
+import android.util.Log;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.thatguyferg.ezquiz.R;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +26,8 @@ public class QuizActivity extends AppCompatActivity {
     TextView txtQuestion;
     Button butNext;
     RadioButton rdA, rdB, rdC;
+    int numberQuestions = questionList.size();
+    int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +42,26 @@ public class QuizActivity extends AppCompatActivity {
         setQuestionView();
 
         butNext.setOnClickListener((v) -> {
+            RadioGroup answerOptions = (RadioGroup)findViewById(R.id.radioAnswers);
+            RadioButton selectedAnswer = (RadioButton)findViewById(answerOptions.getCheckedRadioButtonId());
+
+
+            Log.d("yourans", currentQuestion.getAnswer() + "   " + selectedAnswer.getTag());
+
+            if (currentQuestion.getAnswer().toString().equals(selectedAnswer.getTag())){
+                score++;
+                Log.d("score", "Your score " + score);
+            }
+
             if (qIndex < questionList.size()) {
                 currentQuestion = questionList.get(qIndex);
                 setQuestionView();
             } else {
                 Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+                Bundle b = new Bundle();
+                b.putInt("score", score);
+                b.putInt("numberQuestions", numberQuestions);
+                intent.putExtras(b);
                 startActivity(intent);
                 finish();
             }
@@ -55,6 +75,9 @@ public class QuizActivity extends AppCompatActivity {
         rdB.setText(currentQuestion.getOptB());
         rdC.setText(currentQuestion.getOptC());
         qIndex++;
+
+
+
     }
 
 

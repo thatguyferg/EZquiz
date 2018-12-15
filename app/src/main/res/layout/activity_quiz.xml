@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizActivity">
+    tools:context="com.thatguyferg.ezquiz.QuizActivity">
 
     <TextView
         android:id="@+id/questionText"
@@ -33,6 +33,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
+        android:id="@+id/radioAnswers"
         android:layout_width="374dp"
         android:layout_height="450dp"
         android:layout_marginStart="8dp"
@@ -46,6 +47,7 @@
 
         <RadioButton
             android:id="@+id/A"
+            android:tag="A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="RadioButton"
@@ -54,6 +56,7 @@
 
         <RadioButton
             android:id="@+id/B"
+            android:tag="B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -63,6 +66,7 @@
 
         <RadioButton
             android:id="@+id/C"
+            android:tag="C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
