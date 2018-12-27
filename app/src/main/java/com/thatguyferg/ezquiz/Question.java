@@ -3,11 +3,6 @@ package com.thatguyferg.ezquiz;
 public class Question {
 
     public enum Answer {A, B, C}
-
-
-
-
-
     private final int id;
     private final String question;
     private final Answer answer;

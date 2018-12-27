@@ -12,15 +12,21 @@ class Quiz extends AppCompatActivity{
     );
 
     int qIndex = 0;
-    Question currentQuestion = questionList.get(qIndex);
     int score = 0;
 
-    Boolean hasMoreQuestion(){
+    Question getCurrentQuestion(){
+        return questionList.get(qIndex);
+    }
+
+    int numberQuestions(){
+        return questionList.size();
+    }
+
+    Boolean hasQuestion(){
         return (qIndex < questionList.size());
     }
 
     void nextQuestion(){
-        currentQuestion = questionList.get(qIndex);
         qIndex++;
     }
 

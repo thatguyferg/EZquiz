@@ -30,15 +30,17 @@ public class QuizActivity extends AppCompatActivity {
             RadioGroup answerOptions = findViewById(R.id.radioAnswers);
             RadioButton selectedAnswer = findViewById(answerOptions.getCheckedRadioButtonId());
 
-            quiz.checkAnswer(quiz.currentQuestion.getAnswer().toString(), selectedAnswer.getTag().toString());
+            quiz.checkAnswer(quiz.getCurrentQuestion().getAnswer().toString(), selectedAnswer.getTag().toString());
 
-            if (quiz.hasMoreQuestion()) {
+            quiz.nextQuestion();
+            if (quiz.hasQuestion()) {
                 setQuestionView();
+
             } else {
                 Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
                 Bundle b = new Bundle();
                 b.putInt("score", quiz.score);
-                b.putInt("numberQuestions", quiz.questionList.size());
+                b.putInt("numberQuestions", quiz.numberQuestions());
                 intent.putExtras(b);
                 startActivity(intent);
                 finish();
@@ -48,11 +50,10 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     private void setQuestionView(){
-        quiz.nextQuestion();
-        txtQuestion.setText(quiz.currentQuestion.getQuestion());
-        rdA.setText(quiz.currentQuestion.getOptA());
-        rdB.setText(quiz.currentQuestion.getOptB());
-        rdC.setText(quiz.currentQuestion.getOptC());
+        txtQuestion.setText(quiz.getCurrentQuestion().getQuestion());
+        rdA.setText(quiz.getCurrentQuestion().getOptA());
+        rdB.setText(quiz.getCurrentQuestion().getOptB());
+        rdC.setText(quiz.getCurrentQuestion().getOptC());
     }
 
 
