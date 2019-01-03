@@ -1,9 +1,12 @@
 package com.thatguyferg.ezquiz;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
@@ -23,16 +26,50 @@ public class QuizTest {
         assertThat(quiz.hasQuestion(), is(false));
     }
 
-   // @Test
-    /*public void nextQuestion_AtBeginning_GoesToNewQuestion() {
+   @Test
+   public void hasQuestion_AtBeginning_ReturnsTrue() {
         Quiz quiz = new Quiz();
-        String firstQuestion = quiz.currentQuestion.getQuestion();
-        quiz.nextQuestion();
-
-        assertThat(quiz.currentQuestion.getQuestion(), equalTo(firstQuestion));
-    }*/
-
-    @Test
-    public void checkAnswer() {
+        assertThat(quiz.hasQuestion(), is(true));
     }
+
+
+
+   @Test
+   public void hasQuestion_IndexOOB_ReturnsFalse(){
+       Quiz quiz = new Quiz();
+       quiz.nextQuestion();
+       quiz.nextQuestion();
+       assertThat(quiz.hasQuestion(),is(false));
+   }
+
+   @Test
+   public void getCurrentQuestion_FirstQuestion_ReturnsQuestion(){
+       Quiz quiz = new Quiz();
+       assertThat(quiz.getCurrentQuestion().getQuestion(), containsString("Is milly a good dog?"));
+   }
+
+   @Test (expected = IndexOutOfBoundsException.class)
+   public void getCurrentQuestion_IndexOOB_ThrowsException() {
+       Quiz quiz = new Quiz();
+       quiz.nextQuestion();
+       quiz.nextQuestion();
+       quiz.getCurrentQuestion();
+   }
+
+   //Same as above test but using a rule
+   @Rule
+   public ExpectedException exceptionRule = ExpectedException.none();
+
+   @Test
+   public void whenExceptionThrown_ruleIsApplied(){
+       Quiz quiz = new Quiz();
+       quiz.nextQuestion();
+       quiz.nextQuestion();
+       exceptionRule.expect(IndexOutOfBoundsException.class);
+       exceptionRule.expectMessage("2");
+       quiz.getCurrentQuestion();
+   }
+
+
+
 }

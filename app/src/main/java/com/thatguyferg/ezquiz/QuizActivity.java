@@ -33,6 +33,7 @@ public class QuizActivity extends AppCompatActivity {
             quiz.checkAnswer(quiz.getCurrentQuestion().getAnswer().toString(), selectedAnswer.getTag().toString());
 
             quiz.nextQuestion();
+
             if (quiz.hasQuestion()) {
                 setQuestionView();
 
