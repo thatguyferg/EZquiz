@@ -13,22 +13,42 @@ import androidx.test.espresso.action.ViewActions;
 import androidx.test.espresso.assertion.ViewAssertions.*;
 import androidx.test.espresso.matcher.ViewMatchers.*;
 import androidx.test.espresso.Espresso.*;
+import androidx.test.espresso.intent.Intents;
+
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.intent.Intents.intended;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class WelcomeActivityAndroidUnitTest {
 
-
     @Rule
     public ActivityTestRule<WelcomeActivity> welcomeActivityActivityTestRule
             = new ActivityTestRule<>(WelcomeActivity.class);
 
-   /* @Test
+    @Test
     public void doesTextShowUp(){
-        onView(android.R.id.)
-    }*/
+        onView(withId(R.id.welcomeTextView))
+                .check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void pressingStartButtonGoesToQuizActivity(){
+        Intents.init();
+
+        onView(withId(R.id.start_button))
+                .perform(click());
+
+        intended(hasComponent(QuizActivity.class.getName()));
+
+        Intents.release();
+    }
 }
 
 /*TODO
