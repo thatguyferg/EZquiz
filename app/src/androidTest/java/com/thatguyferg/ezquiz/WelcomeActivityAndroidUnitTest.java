@@ -1,5 +1,6 @@
 package com.thatguyferg.ezquiz;
 
+import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.filters.LargeTest;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
@@ -29,12 +30,12 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 public class WelcomeActivityAndroidUnitTest {
 
     @Rule
-    public ActivityTestRule<WelcomeActivity> welcomeActivityActivityTestRule
+    public ActivityTestRule<WelcomeActivity> welcomeActivityTestRule
             = new ActivityTestRule<>(WelcomeActivity.class);
 
     @Test
     public void doesTextShowUp(){
-        onView(withId(R.id.welcomeTextView))
+        Espresso.onView(ViewMatchers.withId(R.id.welcomeTextView))
                 .check(matches(isDisplayed()));
     }
 
