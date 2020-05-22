@@ -1,13 +1,11 @@
-package com.example.ferggot.ezquiz;
+package com.thatguyferg.ezquiz;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.view.View.OnClickListener;
 
-public class WelcomeScreen extends AppCompatActivity {
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +15,7 @@ public class WelcomeScreen extends AppCompatActivity {
 
         Button btn = (Button)findViewById(R.id.start_button);
 
-        btn.setOnClickListener((V) -> startActivity(new Intent(WelcomeScreen.this, QuizActivity.class)));
+        btn.setOnClickListener((V) -> startActivity(new Intent(WelcomeActivity.this, QuizActivity.class)));
 
     }
 

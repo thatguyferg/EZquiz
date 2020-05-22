@@ -1,9 +1,8 @@
-package com.example.ferggot.ezquiz;
+package com.thatguyferg.ezquiz;
 
 public class Question {
 
     public enum Answer {A, B, C}
-
     private final int id;
     private final String question;
     private final Answer answer;
@@ -43,4 +42,5 @@ public class Question {
     public Answer getAnswer() {
         return answer;
     }
+
 }
