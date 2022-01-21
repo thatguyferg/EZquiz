@@ -8,14 +8,17 @@
 
     <TextView
         android:id="@+id/questionText"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="30sp"
+        android:autoSizeTextType="uniform"
+
+
+        android:minHeight="48dp"
+        android:textAlignment="gravity"
+        android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,53 +29,53 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="17dp"
         android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioAnswers" />
 
     <RadioGroup
         android:id="@+id/radioAnswers"
-        android:layout_width="374dp"
+        android:layout_width="match_parent"
         android:layout_height="450dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/nextButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/questionText">
 
         <RadioButton
             android:id="@+id/A"
-            android:tag="A"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:minHeight="40dp"
+            android:tag="A"
             android:text="RadioButton"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="209dp" />
 
         <RadioButton
             android:id="@+id/B"
-            android:tag="B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:autoSizeTextType="uniform"
+            android:minHeight="40dp"
+            android:tag="B"
             android:text="RadioButton"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="297dp" />
 
         <RadioButton
             android:id="@+id/C"
-            android:tag="C"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:autoSizeTextType="uniform"
+            android:minHeight="40dp"
+            android:tag="C"
             android:text="RadioButton"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="399dp" />
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
