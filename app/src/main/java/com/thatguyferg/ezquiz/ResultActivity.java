@@ -15,7 +15,7 @@ public class ResultActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         int score = b.getInt("score");
         int numberQuestions = b.getInt("numberQuestions");
-        TextView result = (TextView)findViewById(R.id.scoreText);
+        TextView result = findViewById(R.id.scoreText);
         result.setText("You got " + score + "/" + numberQuestions);
     }
 

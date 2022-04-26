@@ -13,7 +13,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
 
 
-        Button btn = (Button)findViewById(R.id.start_button);
+        Button btn = findViewById(R.id.start_button);
 
         btn.setOnClickListener((V) -> startActivity(new Intent(WelcomeActivity.this, QuizActivity.class)));
 

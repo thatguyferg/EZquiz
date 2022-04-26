@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class QuizActivity extends AppCompatActivity {
 
-    Quiz quiz = new Quiz();
+    final Quiz quiz = new Quiz();
     TextView txtQuestion;
     Button butNext;
     RadioButton rdA, rdB, rdC;

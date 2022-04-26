@@ -6,7 +6,7 @@ import java.util.List;
 
 class Quiz extends AppCompatActivity{
 
-    List<Question> questionList = Arrays.asList (
+    final List<Question> questionList = Arrays.asList (
             new Question(1, "Is milly a good dog?", "Yes", "Yeah", "Ye", Question.Answer.C),
             new Question(2, "Does the next button work?", "Yes", "Maybe", "Definitely", Question.Answer.A)
     );
@@ -30,13 +30,11 @@ class Quiz extends AppCompatActivity{
         qIndex++;
     }
 
-    int checkAnswer(String answer, String selection) {
+    void checkAnswer(String answer, String selection) {
         if (answer.equals(selection)){
             score++;
         } else {
-            return score;
         }
-        return score;
     }
 
 

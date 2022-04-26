@@ -2,7 +2,6 @@ package com.thatguyferg.ezquiz;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.not;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -58,7 +57,7 @@ public class QuizTest {
 
    //Same as above test but using a rule
    @Rule
-   public ExpectedException exceptionRule = ExpectedException.none();
+   public final ExpectedException exceptionRule = ExpectedException.none();
 
    @Test
    public void whenExceptionThrown_ruleIsApplied(){
