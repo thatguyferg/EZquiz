@@ -35,7 +35,6 @@ class Quiz extends AppCompatActivity{
     void checkAnswer(String answer, String selection) {
         if (answer.equals(selection)){
             score++;
-        } else {
         }
     }
 

@@ -2,7 +2,7 @@ package com.thatguyferg.ezquiz;
 
 public class Question {
 
-    public enum Answer {A, B, C}
+    public enum Answer {A, C}
     private final int id;
     private final String question;
     private final Answer answer;
@@ -17,10 +17,6 @@ public class Question {
         this.optB = optB;
         this.optC = optC;
         this.answer = answer;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getQuestion() {

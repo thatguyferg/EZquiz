@@ -1,12 +1,15 @@
 package com.thatguyferg.ezquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
