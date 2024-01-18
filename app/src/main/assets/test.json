@@ -1,0 +1,31 @@
+{
+  "title": "Nice Test Quiz",
+  "questions": [
+    {
+      "question": "will this json work?",
+      "optA": "nope",
+      "optB": "always",
+      "optC": "one day",
+      "answer": "optC"
+    },
+    {
+      "question": "how is this working?",
+      "optA": "very nice",
+      "optB": "very nice not",
+      "optC": "yeah",
+      "answer": "optA"
+    },
+    {
+      "question": "will this break?",
+      "optA": "no",
+      "optB": "probably no",
+      "optC": "of course",
+      "answer": "optB"
+    }
+  ]
+}
+
+
+
+
+
