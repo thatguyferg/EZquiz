@@ -15,7 +15,7 @@ class Quiz {
       new Question(4, "Will this really really really really really really really really really really really long question do something bad?", "No", "Yes", "Both", Question.Answer.C)
   );
 
-  int qIndex = 0;
+  private int qIndex = 0;
   int score = 0;
 
   Question getCurrentQuestion() {
@@ -31,7 +31,10 @@ class Quiz {
   }
 
   void nextQuestion() {
-    qIndex++;
+    // TODO: 2/25/24 band-aid solution to prevent qIndex from incrementing OOB (will fully fix after refactor with iterators)
+    if (qIndex < questionList.size()) {
+      qIndex += 1;
+    }
   }
 
   void checkAnswer(String answer, String selection) {

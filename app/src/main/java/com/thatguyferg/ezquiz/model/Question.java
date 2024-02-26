@@ -3,7 +3,7 @@ package com.thatguyferg.ezquiz.model;
 /**
  * TODO: investigate how to get enums to work with gson
  */
-public class Question {
+class Question {
 
   //public enum Answer {A, C}
 

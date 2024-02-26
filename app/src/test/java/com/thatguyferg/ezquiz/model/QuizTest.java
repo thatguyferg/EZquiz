@@ -5,11 +5,12 @@ import com.google.gson.Gson;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * TODO:
@@ -21,18 +22,18 @@ import java.io.Reader;
 public class QuizTest {
 
   @Test
-  public void testGetTitle() throws FileNotFoundException {
+  public void testGetTitle() throws IOException {
     Gson gson = new Gson();
-    InputStream in = new FileInputStream("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json");
+    InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
     Reader reader = new InputStreamReader(in);
     Quiz testQuiz = gson.fromJson(reader, Quiz.class);
     Assert.assertEquals("Nice Test Quiz", testQuiz.getTitle());
   }
 
   @Test
-  public void testGetQuestionList() throws FileNotFoundException {
+  public void testGetQuestionList() throws IOException {
     Gson gson = new Gson();
-    InputStream in = new FileInputStream("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json");
+    InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
     Reader reader = new InputStreamReader(in);
     Quiz testQuiz = gson.fromJson(reader, Quiz.class);
     Assert.assertEquals(3, testQuiz.getQuestionList().size());

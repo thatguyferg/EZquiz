@@ -11,17 +11,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class QuizActivity extends AppCompatActivity {
 
-  final Quiz quiz = new Quiz();
-  TextView txtQuestion;
-  Button butNext;
-  RadioButton rdA, rdB, rdC;
+  private final Quiz quiz = new Quiz();
+  private TextView txtQuestion;
+  private RadioButton rdA;
+  private RadioButton rdB;
+  private RadioButton rdC;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_quiz);
     txtQuestion = findViewById(R.id.questionText);
-    butNext = findViewById(R.id.nextButton);
+    Button butNext = findViewById(R.id.nextButton);
     rdA = findViewById(R.id.A);
     rdB = findViewById(R.id.B);
     rdC = findViewById(R.id.C);

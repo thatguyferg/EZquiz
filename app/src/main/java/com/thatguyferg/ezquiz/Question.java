@@ -2,41 +2,40 @@ package com.thatguyferg.ezquiz;
 
 public class Question {
 
-    public enum Answer {A, C}
-    private final int id;
-    private final String question;
-    private final Answer answer;
-    private final String optA;
-    private final String optB;
-    private final String optC;
+  public enum Answer {A, C}
 
-    public Question(int id, String question, String optA, String optB, String optC, Answer answer) {
-        this.id = id;
-        this.question = question;
-        this.optA = optA;
-        this.optB = optB;
-        this.optC = optC;
-        this.answer = answer;
-    }
+  private final String question;
+  private final Answer answer;
+  private final String optA;
+  private final String optB;
+  private final String optC;
 
-    public String getQuestion() {
-        return question;
-    }
+  public Question(int id, String question, String optA, String optB, String optC, Answer answer) {
+    this.question = question;
+    this.optA = optA;
+    this.optB = optB;
+    this.optC = optC;
+    this.answer = answer;
+  }
 
-    public String getOptA() {
-        return optA;
-    }
+  public String getQuestion() {
+    return question;
+  }
 
-    public String getOptB() {
-        return optB;
-    }
+  public String getOptA() {
+    return optA;
+  }
 
-    public String getOptC() {
-        return optC;
-    }
+  public String getOptB() {
+    return optB;
+  }
 
-    public Answer getAnswer() {
-        return answer;
-    }
+  public String getOptC() {
+    return optC;
+  }
+
+  public Answer getAnswer() {
+    return answer;
+  }
 
 }
