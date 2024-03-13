@@ -8,7 +8,7 @@ class Quiz {
   public Quiz() {
   }
 
-  final List<Question> questionList = Arrays.asList(
+  private final List<Question> questionList = Arrays.asList(
       new Question(1, "Is milly a good dog?", "Yes", "Yeah", "Ye", Question.Answer.C),
       new Question(2, "Does the next button work?", "Yes", "Maybe", "Definitely", Question.Answer.A),
       new Question(3, "Is this going to break the layout?", "Yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah yeah", "Probably", "No", Question.Answer.A),
@@ -16,34 +16,42 @@ class Quiz {
   );
 
   private int qIndex = 0;
-  int score = 0;
+  private int score = 0;
 
   Question getCurrentQuestion() {
-    return questionList.get(qIndex);
+    return getQuestionList().get(qIndex);
   }
 
   int numberQuestions() {
-    return questionList.size();
+    return getQuestionList().size();
   }
 
   Boolean hasQuestion() {
-    return (qIndex < questionList.size());
+    return (qIndex < getQuestionList().size());
   }
 
   void nextQuestion() {
     // TODO: 2/25/24 band-aid solution to prevent qIndex from incrementing OOB (will fully fix after refactor with iterators)
-    if (qIndex < questionList.size()) {
+    if (qIndex < getQuestionList().size()) {
       qIndex += 1;
     }
   }
 
   void checkAnswer(String answer, String selection) {
-    if (answer.equals(selection)) {
-      score++;
-    }
+    if (answer.equals(selection)) setScore(getScore() + 1);
   }
 
+  public List<Question> getQuestionList() {
+    return questionList;
+  }
 
+  public int getScore() {
+    return score;
+  }
+
+  private void setScore(int score) {
+    this.score = score;
+  }
 }
 
 

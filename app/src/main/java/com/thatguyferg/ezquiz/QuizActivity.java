@@ -42,7 +42,7 @@ public class QuizActivity extends AppCompatActivity {
       } else {
         Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
         Bundle b = new Bundle();
-        b.putInt("score", quiz.score);
+        b.putInt("score", quiz.getScore());
         b.putInt("numberQuestions", quiz.numberQuestions());
         intent.putExtras(b);
         startActivity(intent);

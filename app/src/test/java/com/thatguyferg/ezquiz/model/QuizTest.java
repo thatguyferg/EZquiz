@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Map;
 
 /**
  * TODO:
@@ -39,5 +40,21 @@ public class QuizTest {
     Assert.assertEquals(3, testQuiz.getQuestionList().size());
   }
 
+  @Test
+  public void testGetQuestionText() throws IOException {
+    Gson gson = new Gson();
+    InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
+    Reader reader = new InputStreamReader(in);
+    Quiz testQuiz = gson.fromJson(reader, Quiz.class);
+    Assert.assertEquals("how is this working?", testQuiz.getQuestionList().get(1).getPrompt());
+  }
 
+  @Test
+  public void testGetOptions() throws IOException {
+    Gson gson = new Gson();
+    InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
+    Reader reader = new InputStreamReader(in);
+    Quiz testQuiz = gson.fromJson(reader, Quiz.class);
+    Assert.assertEquals(Map.of(Question.Options.A, "nope", Question.Options.B, "always", Question.Options.C, "one day"), testQuiz.getQuestionList().get(0).getOptions());
+  }
 }

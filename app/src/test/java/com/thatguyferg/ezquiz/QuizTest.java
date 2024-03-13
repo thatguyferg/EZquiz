@@ -61,20 +61,20 @@ public class QuizTest {
   @Test
   public void numberQuestions_matchesQuestionListSize() {
     Quiz quiz = new Quiz();
-    assertThat(quiz.numberQuestions(), is(quiz.questionList.size()));
+    assertThat(quiz.numberQuestions(), is(quiz.getQuestionList().size()));
   }
 
   @Test
   public void checkAnswer_selectedMatchesAnswer_scoreIncreases() {
     Quiz quiz = new Quiz();
     quiz.checkAnswer("Answer", "Answer");
-    assertThat(quiz.score, is(1));
+    assertThat(quiz.getScore(), is(1));
   }
 
   @Test
   public void checkAnswer_selectedIsWrong_scoreRemainsSame() {
     Quiz quiz = new Quiz();
     quiz.checkAnswer("Answer", "Wrong");
-    assertThat(quiz.score, is(0));
+    assertThat(quiz.getScore(), is(0));
   }
 }

@@ -2,30 +2,31 @@
   "title": "Nice Test Quiz",
   "questions": [
     {
-      "question": "will this json work?",
-      "optA": "nope",
-      "optB": "always",
-      "optC": "one day",
-      "answer": "optC"
+      "prompt": "will this json work?",
+      "options": {
+        "A": "nope",
+        "B": "always",
+        "C": "one day"
+      },
+      "answer": "C"
     },
     {
-      "question": "how is this working?",
-      "optA": "very nice",
-      "optB": "very nice not",
-      "optC": "yeah",
-      "answer": "optA"
+      "prompt": "how is this working?",
+      "options": {
+        "A": "very nice",
+        "B": "very nice not",
+        "C": "yeah"
+      },
+      "answer": "A"
     },
     {
-      "question": "will this break?",
-      "optA": "no",
-      "optB": "probably no",
-      "optC": "of course",
-      "answer": "optB"
+      "prompt": "will this break?",
+      "options": {
+        "A": "no",
+        "B": "probably no",
+        "C": "of course"
+      },
+      "answer": "B"
     }
   ]
 }
-
-
-
-
-
