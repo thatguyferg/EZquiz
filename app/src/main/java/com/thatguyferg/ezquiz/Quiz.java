@@ -5,9 +5,6 @@ import java.util.List;
 
 class Quiz {
 
-  public Quiz() {
-  }
-
   private final List<Question> questionList = Arrays.asList(
       new Question(1, "Is milly a good dog?", "Yes", "Yeah", "Ye", Question.Answer.C),
       new Question(2, "Does the next button work?", "Yes", "Maybe", "Definitely", Question.Answer.A),

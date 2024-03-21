@@ -11,13 +11,12 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Map;
+import java.util.List;
 
 /**
- * TODO:
+ * TODO: ALL FOR LATER
  *  Read the documentation for all the methods and stuff (don't be a dummy)
  *  Learn about + use matchers to match questionList + test generated list -> will need to add package scope (default scope) constructor for question (object) to get list
- *  When launching emulated device ezQuiz is nowhere to be found (not sure why) <- ty studio bot
  *  Look into Flutter/Compose (or whatever the coolest UI framework is)
  */
 public class QuizTest {
@@ -37,7 +36,7 @@ public class QuizTest {
     InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
     Reader reader = new InputStreamReader(in);
     Quiz testQuiz = gson.fromJson(reader, Quiz.class);
-    Assert.assertEquals(3, testQuiz.getQuestionList().size());
+    Assert.assertEquals(3, testQuiz.getQuestions().size());
   }
 
   @Test
@@ -46,7 +45,7 @@ public class QuizTest {
     InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
     Reader reader = new InputStreamReader(in);
     Quiz testQuiz = gson.fromJson(reader, Quiz.class);
-    Assert.assertEquals("how is this working?", testQuiz.getQuestionList().get(1).getPrompt());
+    Assert.assertEquals("how is this working?", testQuiz.getQuestions().get(1).getPrompt());
   }
 
   @Test
@@ -55,6 +54,6 @@ public class QuizTest {
     InputStream in = Files.newInputStream(Paths.get("/home/ferg/Android/Projects/EZQuiz/app/src/main/assets/test.json"));
     Reader reader = new InputStreamReader(in);
     Quiz testQuiz = gson.fromJson(reader, Quiz.class);
-    Assert.assertEquals(Map.of(Question.Options.A, "nope", Question.Options.B, "always", Question.Options.C, "one day"), testQuiz.getQuestionList().get(0).getOptions());
+    Assert.assertEquals(List.of("nope", "always", "one day"), testQuiz.getQuestions().get(0).getOptions());
   }
 }

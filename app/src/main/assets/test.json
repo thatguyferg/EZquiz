@@ -3,30 +3,30 @@
   "questions": [
     {
       "prompt": "will this json work?",
-      "options": {
-        "A": "nope",
-        "B": "always",
-        "C": "one day"
-      },
-      "answer": "C"
+      "options": [
+        "nope",
+        "always",
+        "one day"
+      ],
+      "answer": 2
     },
     {
       "prompt": "how is this working?",
-      "options": {
-        "A": "very nice",
-        "B": "very nice not",
-        "C": "yeah"
-      },
-      "answer": "A"
+      "options": [
+        "very nice",
+        "very nice not",
+        "yeah"
+      ],
+      "answer": 0
     },
     {
       "prompt": "will this break?",
-      "options": {
-        "A": "no",
-        "B": "probably no",
-        "C": "of course"
-      },
-      "answer": "B"
+      "options": [
+        "no",
+        "probably no",
+        "of course"
+      ],
+      "answer": 1
     }
   ]
 }

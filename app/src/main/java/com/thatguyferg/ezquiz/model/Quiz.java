@@ -1,6 +1,5 @@
 package com.thatguyferg.ezquiz.model;
 
-import java.util.Collections;
 import java.util.List;
 
 class Quiz {
@@ -11,7 +10,7 @@ class Quiz {
     return this.title;
   }
 
-  public List<Question> getQuestionList() {
-    return Collections.unmodifiableList(this.questions);
+  public List<Question> getQuestions() {
+    return List.copyOf(questions);
   }
 }
