@@ -2,7 +2,7 @@ package com.thatguyferg.ezquiz.model;
 
 import java.util.List;
 
-class Quiz {
+public class Quiz {
   private String title;
   private List<Question> questions;
 
