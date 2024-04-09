@@ -25,12 +25,13 @@ import java.util.ListIterator;
 //    SETUP ITERATOR FOR LIST (for getting current question/parsing list)
 public class QuizActivity extends AppCompatActivity {
 
+  int score = 0;
+  private int currentQuestionIndex = 0;
   private Quiz quiz;
   private TextView txtQuestion;
   private RadioButton rdA;
   private RadioButton rdB;
   private RadioButton rdC;
-  private int score = 0;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -46,27 +47,28 @@ public class QuizActivity extends AppCompatActivity {
     rdA = findViewById(R.id.A);
     rdB = findViewById(R.id.B);
     rdC = findViewById(R.id.C);
-    setQuestionView(questionList.get(questionIterator.nextIndex()));
+    setQuestionView(questionList.get(0));
 
     butNext.setOnClickListener((v) -> {
       RadioGroup answerOptions = findViewById(R.id.radioAnswers);
       RadioButton selectedAnswer = findViewById(answerOptions.getCheckedRadioButtonId());
-
       //quiz.checkAnswer(quiz.getCurrentQuestion().getAnswer().toString(), selectedAnswer.getTag().toString());
+      if (answerOptions.getCheckedRadioButtonId() != -1) {
+        checkAnswer(selectedAnswer, questionList.get(currentQuestionIndex));
 
-      checkAnswer(selectedAnswer, questionList.get(questionIterator.nextIndex()));
+        if (++currentQuestionIndex < questionList.size()) {
 
-      if (questionIterator.hasNext()) {
-        setQuestionView(questionIterator.next());
+          setQuestionView(questionList.get(currentQuestionIndex));
 
-      } else {
-        Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
-        Bundle b = new Bundle();
-        b.putInt("score", score);
-        b.putInt("numberQuestions", quiz.getQuestions().size());
-        intent.putExtras(b);
-        startActivity(intent);
-        finish();
+        } else {
+          Intent intent = new Intent(QuizActivity.this, ResultActivity.class);
+          Bundle b = new Bundle();
+          b.putInt("score", score);
+          b.putInt("numberQuestions", quiz.getQuestions().size());
+          intent.putExtras(b);
+          startActivity(intent);
+          finish();
+        }
       }
     });
 
@@ -80,7 +82,8 @@ public class QuizActivity extends AppCompatActivity {
   }
 
   void checkAnswer(RadioButton selected, Question currentQuestion) {
-    if (selected.getTag().toString().equals(currentQuestion.getOptions().get(currentQuestion.getAnswer()))) {
+    int selectedTag = Integer.parseInt(selected.getTag().toString());
+    if (selectedTag == currentQuestion.getAnswer()) {
       score++;
     }
   }
