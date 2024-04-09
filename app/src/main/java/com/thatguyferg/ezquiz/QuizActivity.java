@@ -17,7 +17,6 @@ import com.thatguyferg.ezquiz.model.Quiz;
 
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.ListIterator;
 
 // TODO: 3/21/24 how to load files from a resource bundle (like default quiz included with apk)?
 //    Fix the rest of the activity code that selects and displays different parts of quiz
@@ -40,7 +39,7 @@ public class QuizActivity extends AppCompatActivity {
 
     quiz = getQuiz();
     List<Question> questionList = quiz.getQuestions();
-    ListIterator<Question> questionIterator = questionList.listIterator();
+    //ListIterator<Question> questionIterator = questionList.listIterator();
 
     txtQuestion = findViewById(R.id.questionText);
     Button butNext = findViewById(R.id.nextButton);
@@ -49,7 +48,7 @@ public class QuizActivity extends AppCompatActivity {
     rdC = findViewById(R.id.C);
     setQuestionView(questionList.get(0));
 
-    butNext.setOnClickListener((v) -> {
+    butNext.setOnClickListener(v -> {
       RadioGroup answerOptions = findViewById(R.id.radioAnswers);
       RadioButton selectedAnswer = findViewById(answerOptions.getCheckedRadioButtonId());
       //quiz.checkAnswer(quiz.getCurrentQuestion().getAnswer().toString(), selectedAnswer.getTag().toString());
