@@ -39,6 +39,7 @@ public class QuizActivity extends AppCompatActivity {
 
     quiz = getQuiz();
     List<Question> questionList = quiz.getQuestions();
+    Question firstQuestion = questionList.get(0);
     //ListIterator<Question> questionIterator = questionList.listIterator();
 
     txtQuestion = findViewById(R.id.questionText);
@@ -46,7 +47,7 @@ public class QuizActivity extends AppCompatActivity {
     rdA = findViewById(R.id.A);
     rdB = findViewById(R.id.B);
     rdC = findViewById(R.id.C);
-    setQuestionView(questionList.get(0));
+    setQuestionView(firstQuestion);
 
     butNext.setOnClickListener(v -> {
       RadioGroup answerOptions = findViewById(R.id.radioAnswers);
