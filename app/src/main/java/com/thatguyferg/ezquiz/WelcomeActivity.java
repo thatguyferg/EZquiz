@@ -16,9 +16,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     Button btn = findViewById(R.id.start_button);
 
-    btn.setOnClickListener((V) -> startActivity(new Intent(WelcomeActivity.this, QuizActivity.class)));
-
+    btn.setOnClickListener((V) -> {
+      startActivity(new Intent(WelcomeActivity.this, QuizActivity.class));
+    });
   }
-
-
 }
