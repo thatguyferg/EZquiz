@@ -1,0 +1,32 @@
+{
+  "title": "Nice Test Quiz",
+  "questions": [
+    {
+      "prompt": "will this json work?",
+      "options": [
+        "nope",
+        "always",
+        "one day"
+      ],
+      "answer": 2
+    },
+    {
+      "prompt": "how is this working?",
+      "options": [
+        "very nice",
+        "very nice not",
+        "yeah"
+      ],
+      "answer": 0
+    },
+    {
+      "prompt": "will this break?",
+      "options": [
+        "no",
+        "probably no",
+        "of course"
+      ],
+      "answer": 1
+    }
+  ]
+}
