@@ -50,9 +50,10 @@ fun WelcomeScreen(){
         /*Button(onClick = {
             Toast.makeText(context, "Hello!", Toast.LENGTH_SHORT).show()
         })*/
-       /* Button(onClick = {
+       /*Button(onClick = {
             context.startActivity(Intent(context, QuizActivity::class.java))
         })*/
+
     }
 }
 
